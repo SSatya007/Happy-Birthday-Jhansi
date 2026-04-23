@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Happy Birthday jaanu</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+text-align:center;
+font-family:Arial;
+background:linear-gradient(135deg,#f7b2c4,#d6b3ff);
+overflow-x:hidden;
+}
+
+/* 3D Heading */
+
+h1{
+font-size:55px;
+margin-top:80px;
+color:#ff0066;
+text-shadow:
+2px 2px 0 #fff,
+4px 4px 0 #ff99cc,
+6px 6px 0 #ff66b2,
+8px 8px 12px rgba(0,0,0,0.3);
+}
+
+/* Subtitle */
+
+.subtitle{
+font-size:20px;
+margin-bottom:30px;
+}
+
+/* Button */
+
+button{
+padding:12px 25px;
+font-size:18px;
+background:#ff0066;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Slideshow */
+
+.gallery{
+display:none;
+margin-top:40px;
+}
+
+.gallery img{
+width:350px;
+border-radius:20px;
+animation:zoom 3s infinite;
+}
+
+/* Breathing zoom */
+
+@keyframes zoom{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.1);}
+
+100%{transform:scale(1);}
+
+}
+
+/* Quote Section */
+
+.quote{
+display:none;
+margin-top:600px;
+padding:30px;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.4);
+font-size:24px;
+font-style:italic;
+box-shadow:0 8px 32px rgba(0,0,0,0.25);
+position:relative;
+}
+
+/* Quote Title */
+
+.quote h2{
+font-size:36px;
+margin-bottom:20px;
+color:#ff2d75;
+text-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Floating icons */
+
+.icon{
+position:fixed;
+bottom:-50px;
+font-size:26px;
+animation:floatUp 8s linear infinite;
+}
+
+@keyframes floatUp{
+
+0%{transform:translateY(0);}
+
+100%{transform:translateY(-100vh);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="text"></h1>
+
+<p class="subtitle">
+𝐓𝐡𝐞 𝐝𝐚𝐲 𝐦𝐲 𝐟𝐚𝐯𝐨𝐫𝐢𝐭𝐞 𝐩𝐞𝐫𝐬𝐨𝐧 𝐰𝐚𝐬 𝐛𝐨𝐫𝐧
+</p>
+
+<button onclick="start()">𝑷𝒍𝒆𝒂𝒔𝒆 𝑪𝒍𝒊𝒄𝒌 𝒉𝒆𝒓𝒆 𝑱𝒂𝒂𝒏𝒖 🎉</button>
+
+<div class="gallery" id="gallery">
+<img id="slide">
+</div>
+
+<div class="quote" id="quote">
+
+<h2>💫𝒜 𝒮𝓅ℯ𝒸𝒾𝒶𝓁 ℳℯ𝓈𝓈𝒶𝑔ℯ ℱℴ𝓇 𝒴ℴ𝓊💫</h2>
+
+<p>
+"On this special day, I want you to know how grateful l am to have you in my life,<br>
+Your laughter fills my days with joy, your love gives me strength, and your presence makes everything better. You are not just my girlfriend, you are my best friend, my partner in crime, and the love of my life,<br>
+Today, we celebrate you - your kindness, your beauty, your amazing spirit, and all the wonderful things that make you uniquely you. I hope this new year of your life brings you endless happiness, incredible adventures, and all your dreams come 👸🏻"
+</p>
+
+</div>
+
+<script>
+
+/* Typing effect */
+
+let msg="𝑯𝒂𝒑𝒑𝒚 𝑩𝒊𝒓𝒕𝒉𝒅𝒂𝒚 𝑻𝒐 𝒀𝒐𝒖 𝒅𝒂𝒓𝒍𝒊𝒏𝒈 𝑱𝒂𝒂𝒏𝒖❤️";
+let i=0;
+
+function typing(){
+
+if(i<msg.length){
+
+document.getElementById("text").innerHTML+=msg.charAt(i);
+
+i++;
+
+setTimeout(typing,80);
+
+}
+
+}
+
+typing();
+
+
+/* Photos */
+
+let photos=[
+"jaanu.jpeg",
+"jaanu1.jpeg",
+"jaanu2.jpeg",
+"jaanu3.jpeg",
+"jaanu4.jpeg", 
+];
+
+let index=0;
+
+function start(){
+
+document.querySelector("button").style.display="none";
+
+document.getElementById("gallery").style.display="block";
+
+document.getElementById("quote").style.display="block";
+
+document.getElementById("slide").src=photos[0];
+
+setInterval(nextPhoto,1500);
+
+}
+
+function nextPhoto(){
+
+index++;
+
+if(index>=photos.length){
+index=0;
+}
+
+document.getElementById("slide").src=photos[index];
+
+}
+
+
+/* Floating icons */
+
+setInterval(function(){
+
+let icon=document.createElement("div");
+
+icon.className="icon";
+
+let icons=["❤️","💖","🦋","🌸","🌺"];
+
+icon.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+icon.style.left=Math.random()*100+"%";
+
+document.body.appendChild(icon);
+
+setTimeout(()=>{
+
+icon.remove();
+
+},8000);
+
+},700);
+
+</script>
+
+</body>
+
+</html>
